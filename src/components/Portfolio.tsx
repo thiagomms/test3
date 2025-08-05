@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 
-export const Portfolio: React.FC = () => {
+export const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('todos');
 
   const projects = [

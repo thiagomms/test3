@@ -1,7 +1,7 @@
-import React from 'react';
+
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4">

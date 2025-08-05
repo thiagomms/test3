@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface HeaderProps {
@@ -6,7 +6,7 @@ interface HeaderProps {
   setIsMenuOpen: (open: boolean) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen }) => {
+export const Header = ({ isMenuOpen, setIsMenuOpen }: HeaderProps) => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
       <div className="container mx-auto px-4 py-4">
