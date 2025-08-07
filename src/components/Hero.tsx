@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Transformamos sua
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> visão digital</span>
-                em realidade
+                {' '}em realidade
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Criamos experiências digitais excepcionais que conectam sua marca ao sucesso. 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowLeft, ExternalLink, Github, Calendar, User, Tag, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ProjectDetailsProps {
@@ -6,8 +6,13 @@ interface ProjectDetailsProps {
   onBack: () => void;
 }
 
-export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectId, onBack }) => {
+export const ProjectDetails = ({ projectId, onBack }: ProjectDetailsProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Scroll para o topo quando o componente for montado
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
 
   // Dados do projeto (normalmente viria de uma API ou contexto)
   const projectData = {
@@ -51,7 +56,7 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectId, onBac
       ],
       
       testimonial: {
-        text: "A DigitalStudio superou todas as nossas expectativas. O e-commerce não apenas ficou lindo, mas também trouxe resultados incríveis para nosso negócio.",
+        text: "A AuLink superou todas as nossas expectativas. O e-commerce não apenas ficou lindo, mas também trouxe resultados incríveis para nosso negócio.",
         author: "Maria Silva",
         role: "CEO da ModaStyle Boutique",
         avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100"
@@ -132,9 +137,9 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectId, onBac
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <div className="bg-gray-50 py-8">
+    <div className="min-h-screen bg-white pt-20">
+      {/* Project Header Section */}
+      <div className="bg-gray-50 py-12">
         <div className="container mx-auto px-4">
           <button
             onClick={onBack}
@@ -153,15 +158,6 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectId, onBac
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Breadcrumb */}
-      <div className="container mx-auto px-4 py-4">
-        <nav className="flex items-center space-x-2 text-sm text-gray-600">
-          <button onClick={onBack} className="hover:text-blue-600">Home</button>
-          <span>/</span>
-          <span className="text-gray-900">Detalhes do Projeto</span>
-        </nav>
       </div>
 
       {/* Image Gallery */}

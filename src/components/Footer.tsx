@@ -1,31 +1,31 @@
-import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer id="contato" className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">D</span>
-              </div>
-              <span className="ml-3 text-xl font-bold">DigitalStudio</span>
+              <img 
+                src="/logo-rodape.png" 
+                alt="AuLink Logo" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
               Transformamos ideias em soluções digitais inovadoras. 
               Somos seu parceiro ideal para levar seu negócio ao próximo nível digital.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
+              <a href="https://www.facebook.com/aulink.oficial" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
+              <a href="https://www.instagram.com/aulink.oficial/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
+              <a href="https://www.linkedin.com/company/aulink" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -35,11 +35,11 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Nossos Serviços</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Desenvolvimento Web</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">E-commerce</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Apps Mobile</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">UI/UX Design</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Consultoria Digital</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Desenvolvimento Web</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">E-commerce</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Apps Mobile</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">UI/UX Design</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Consultoria Digital</a></li>
             </ul>
           </div>
 
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center">
                 <Mail size={18} className="text-blue-400 mr-3" />
-                <span className="text-gray-300">contato@digitalstudio.com</span>
+                <span className="text-gray-300">contato@aulink.com</span>
               </div>
               <div className="flex items-center">
                 <MapPin size={18} className="text-blue-400 mr-3" />
@@ -90,7 +90,7 @@ export const Footer: React.FC = () => {
         {/* Copyright */}
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400">
-            © 2025 DigitalStudio. Todos os direitos reservados.
+            © 2025 AuLink. Todos os direitos reservados.
           </p>
         </div>
       </div>

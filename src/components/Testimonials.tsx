@@ -5,26 +5,26 @@ export const Testimonials: React.FC = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Maria Silva',
+      name: 'Marcos Bellizia',
       role: 'CEO da Boutique Elegance',
-      content: 'A DigitalStudio transformou completamente nossa presença online. O e-commerce que desenvolveram aumentou nossas vendas em 300% em apenas 6 meses.',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100',
+      content: 'A AuLink transformou completamente nossa presença online. O e-commerce que desenvolveram aumentou nossas vendas em 300% em apenas 6 meses.',
+      avatar: '/public/cliente1.png',
       rating: 5
     },
     {
       id: 2,
       name: 'João Santos',
-      role: 'Diretor da TechStartup',
+      role: 'Funcionario de StartUp',
       content: 'Profissionais excepcionais! Entregaram nosso app mobile antes do prazo e com qualidade superior ao esperado. Recomendo sem hesitação.',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100',
+      avatar: '/public/cliente2.jfif',
       rating: 5
     },
     {
       id: 3,
-      name: 'Ana Costa',
-      role: 'Fundadora da EcoVerde',
+      name: 'Lucas Rodrigues',
+      role: 'Diretor de Tech StartUp',
       content: 'Além do excelente trabalho técnico, a equipe demonstrou total comprometimento com nossos valores sustentáveis. Parceria perfeita!',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100',
+      avatar: '/public/lucas.jfif',
       rating: 5
     }
   ];
@@ -62,7 +62,7 @@ export const Testimonials: React.FC = () => {
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
+                  className="w-16 h-16 rounded-full object-cover mr-4"
                 />
                 <div>
                   <div className="font-semibold text-gray-900">{testimonial.name}</div>

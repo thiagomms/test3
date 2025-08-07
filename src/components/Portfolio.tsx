@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { Eye, ArrowRight } from 'lucide-react';
 
 interface PortfolioProps {
   onProjectClick?: (projectId: string) => void;
 }
 
-export const Portfolio: React.FC<PortfolioProps> = ({ onProjectClick }) => {
+export const Portfolio = ({ onProjectClick }: PortfolioProps) => {
   const [activeCategory, setActiveCategory] = useState('todos');
 
   const projects = [
@@ -74,9 +74,9 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onProjectClick }) => {
   const categories = [
     { id: 'todos', label: 'Todos os Projetos' },
     { id: 'website', label: 'Websites' },
-    { id: 'ecommerce', label: 'E-commerce' },
-    { id: 'mobile', label: 'Apps Mobile' },
-    { id: 'dashboard', label: 'Dashboards' }
+    { id: 'ecommerce', label: 'Fotos' },
+    { id: 'mobile', label: 'Notions' },
+    // { id: 'dashboard', label: 'Dashboards' }
   ];
 
   const filteredProjects = activeCategory === 'todos' 
@@ -126,19 +126,13 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onProjectClick }) => {
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
-                  <a
-                    href={project.link}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <button
+                    onClick={() => onProjectClick?.(project.id.toString())}
                     className="bg-white/90 backdrop-blur-sm p-3 rounded-full hover:bg-white transition-colors"
                   >
-                    <ExternalLink size={20} className="text-gray-700" />
-                  </a>
-                  <a
-                    href={project.github}
-                    className="bg-white/90 backdrop-blur-sm p-3 rounded-full hover:bg-white transition-colors"
-                  >
-                    <Github size={20} className="text-gray-700" />
-                  </a>
+                    <Eye size={20} className="text-gray-700" />
+                  </button>
                 </div>
               </div>
               

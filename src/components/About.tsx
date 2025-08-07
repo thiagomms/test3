@@ -3,8 +3,8 @@ import { Users, Award, Clock, Target } from 'lucide-react';
 
 export const About: React.FC = () => {
   const stats = [
-    { icon: Users, value: '50+', label: 'Clientes Satisfeitos' },
-    { icon: Award, value: '150+', label: 'Projetos Concluídos' },
+    { icon: Users, value: '20+', label: 'Clientes Satisfeitos' },
+    { icon: Award, value: '120+', label: 'Projetos Concluídos' },
     { icon: Clock, value: '3+', label: 'Anos de Experiência' },
     { icon: Target, value: '98%', label: 'Taxa de Satisfação' },
   ];
@@ -22,7 +22,7 @@ export const About: React.FC = () => {
     },
     {
       title: 'Suporte Dedicado',
-      description: 'Acompanhamento completo antes, durante e após a entrega do seu projeto.',
+      description: 'Acompanhamento completo do projeto antes, durante e após a entrega dos resultados',
       icon: '🤝'
     }
   ];
@@ -32,12 +32,10 @@ export const About: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Sobre a <span className="text-blue-600">DigitalStudio</span>
+            Sobre a <span className="text-blue-600">AuLink</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Somos uma equipe apaixonada por tecnologia, dedicada a criar soluções digitais 
-            que transformam negócios e conectam pessoas. Nossa missão é levar sua empresa 
-            para o próximo nível digital.
+          Somos uma equipe apaixonada por tecnologia, marketing e estratégia de alavancagem, dedicada a criar soluções digitais que transformam negócios e conectam pessoas. Nossa missão é levar sua empresa para o próximo nível digital e de muito sucesso
           </p>
         </div>
 
