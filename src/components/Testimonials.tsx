@@ -1,7 +1,7 @@
-
+import React from 'react';
 import { Star } from 'lucide-react';
 
-export const Testimonials = () => {
+export const Testimonials: React.FC = () => {
   const testimonials = [
     {
       id: 1,

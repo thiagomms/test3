@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 
-export const Portfolio = () => {
+interface PortfolioProps {
+  onProjectClick?: (projectId: string) => void;
+}
+
+export const Portfolio: React.FC<PortfolioProps> = ({ onProjectClick }) => {
   const [activeCategory, setActiveCategory] = useState('todos');
 
   const projects = [
@@ -154,7 +158,7 @@ export const Portfolio = () => {
                 </div>
                 
                 <button className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2 group">
-                  Ver projeto completo
+                  <span onClick={() => onProjectClick?.(project.id.toString())}>Ver projeto completo</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>

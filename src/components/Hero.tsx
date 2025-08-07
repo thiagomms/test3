@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Play, CheckCircle, ArrowRight } from 'lucide-react';
 
-export const Hero = () => {
+export const Hero: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 

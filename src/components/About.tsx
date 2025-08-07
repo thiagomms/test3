@@ -1,7 +1,7 @@
-
+import React from 'react';
 import { Users, Award, Clock, Target } from 'lucide-react';
 
-export const About = () => {
+export const About: React.FC = () => {
   const stats = [
     { icon: Users, value: '50+', label: 'Clientes Satisfeitos' },
     { icon: Award, value: '150+', label: 'Projetos Concluídos' },
