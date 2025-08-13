@@ -45,7 +45,7 @@ export const portfolioProjects: PortfolioProject[] = [
     id: 4,
     title: 'Captura Audiovisual',
     description: 'Sistema profissional para captura, edição e produção de vídeos corporativos e institucionais.',
-    image: 'public/icon-sant.jpg',
+    image: '/icon-sant.jpg',
     category: 'video',
     technologies: ['After Effects', 'Premiere Pro', 'DaVinci'],
     link: '#',
