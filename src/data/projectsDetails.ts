@@ -34,7 +34,6 @@ export const projectsDetails: Record<string, ProjectDetail> = {
     images: [
       '/carro-1.jpg',
       '/trampo2-bidel.jpg',
-      '/demo-video.mp4', // Adicione seu vídeo aqui
       'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800'
     ],
     description: `Desenvolvemos websites corporativos que transformam a presença digital das empresas, criando experiências únicas que conectam marcas aos seus públicos de forma efetiva. 
