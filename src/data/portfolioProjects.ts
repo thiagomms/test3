@@ -14,20 +14,20 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: 1,
     title: 'WebSites Corporativos',
-    description: 'Plataforma completa de vendas online com sistema de pagamento integrado e gestão de estoque.',
+    description: 'Desenvolvimento de websites profissionais com gestão completa de tráfego pago para maximizar resultados.',
     image: '/trampo-bidel.jpg',
-    category: 'ecommerce',
-    technologies: ['React', 'Node.js', 'MongoDB'],
+    category: 'website',
+    technologies: ['React', 'Node.js', 'Meta Business'],
     link: '#',
     github: '#'
   },
   {
     id: 2,
     title: 'Motion Design 3D',
-    description: 'Aplicativo mobile para acompanhamento de exercícios e metas de saúde.',
+    description: 'Criação de animações 3D e motion graphics que dão vida às ideias e elevam a comunicação visual.',
     image: '/intro-aniel.mp4',
     category: 'mobile',
-    technologies: ['React Native', 'Firebase', 'Redux'],
+    technologies: ['Cinema 4D', 'After Effects', 'Blender'],
     link: '#',
     github: '#'
   },
@@ -38,6 +38,16 @@ export const portfolioProjects: PortfolioProject[] = [
     image: '/dash-2-Thiago.gif',
     category: 'ecommerce',
     technologies: ['React', 'D3.js', 'Chart.js'],
+    link: '#',
+    github: '#'
+  },
+  {
+    id: 4,
+    title: 'Captura Audiovisual',
+    description: 'Sistema profissional para captura, edição e produção de vídeos corporativos e institucionais.',
+    image: 'public/icon-sant.jpg',
+    category: 'video',
+    technologies: ['After Effects', 'Premiere Pro', 'DaVinci'],
     link: '#',
     github: '#'
   }

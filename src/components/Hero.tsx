@@ -1,15 +1,66 @@
 import React, { useState } from 'react';
-import { Play, CheckCircle, ArrowRight } from 'lucide-react';
+import { Play, CheckCircle, ArrowRight, User, Mail } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showNameField, setShowNameField] = useState(false);
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+    // Mostra o campo de nome quando o usuário começa a digitar o email
+    if (value.length > 0 && !showNameField) {
+      setShowNameField(true);
+    } else if (value.length === 0) {
+      setShowNameField(false);
+      setName(''); // Limpa o nome se o email for apagado
+      setPhone(''); // Limpa o telefone se o email for apagado
+    }
+  };
+
+  const formatPhone = (value: string) => {
+    // Remove tudo que não é número
+    const numbers = value.replace(/\D/g, '');
+    
+    // Aplica a máscara
+    if (numbers.length <= 2) {
+      return numbers;
+    } else if (numbers.length <= 7) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+    } else if (numbers.length <= 11) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7)}`;
+    }
+    // Limita a 11 dígitos
+    return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhone(e.target.value);
+    setPhone(formatted);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Aqui você pode enviar os dados para sua API
+    console.log('Proposta solicitada:', {
+      email: email,
+      nome: name || 'Não informado',
+      telefone: phone || 'Não informado',
+      data: new Date().toLocaleString('pt-BR')
+    });
+    
     setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setShowNameField(false);
+    }, 3000);
     setEmail('');
+    setName('');
+    setPhone('');
   };
 
   return (
@@ -35,15 +86,23 @@ export const Hero: React.FC = () => {
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center text-gray-700">
                 <CheckCircle className="text-green-500 mr-2" size={20} />
-                <span>Sites Responsivos</span>
+                <span>Sites Corporativos</span>
               </div>
               <div className="flex items-center text-gray-700">
                 <CheckCircle className="text-green-500 mr-2" size={20} />
-                <span>E-commerce</span>
+                <span>Tráfego Pago</span>
               </div>
               <div className="flex items-center text-gray-700">
                 <CheckCircle className="text-green-500 mr-2" size={20} />
-                <span>Apps Mobile</span>
+                <span>Dashboards</span>
+              </div>
+              <div className="flex items-center text-gray-700">
+                <CheckCircle className="text-green-500 mr-2" size={20} />
+                <span>Captura AudioVisual</span>
+              </div>
+              <div className="flex items-center text-gray-700">
+                <CheckCircle className="text-green-500 mr-2" size={20} />
+                <span>Motion'S</span>
               </div>
             </div>
 
@@ -51,22 +110,69 @@ export const Hero: React.FC = () => {
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Receba uma proposta gratuita
               </h3>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Seu melhor e-mail"
-                  className="flex-1 px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
+              <div className="space-y-3">
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={handleEmailChange}
+                    placeholder="Seu melhor e-mail"
+                    className="w-full px-4 py-3 pl-11 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                    required
+                  />
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                </div>
+                
+                {/* Gaveta expansível com campos de nome e telefone */}
+                <div 
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    showNameField ? 'max-h-56 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="space-y-3">
+                    <div className={`relative transition-all duration-300 ${showNameField ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'}`}>
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Seu nome completo"
+                        className="w-full px-4 py-3 pl-11 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required={showNameField}
+                      />
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                    </div>
+                    
+                    <div className={`relative transition-all duration-300 delay-100 ${showNameField ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'}`}>
+                      <input
+                        type="tel"
+                        value={phone}
+                        onChange={handlePhoneChange}
+                        placeholder="Seu telefone (WhatsApp)"
+                        className="w-full px-4 py-3 pl-11 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required={showNameField}
+                      />
+                      <i className="fab fa-whatsapp absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg"></i>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-2 ml-1">Para personalizarmos sua proposta e entrarmos em contato</p>
+                </div>
+                
                 <button
                   type="submit"
                   disabled={isSubmitted}
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50"
+                  className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50"
                 >
-                  {isSubmitted ? 'Enviado!' : 'Quero minha proposta'}
-                  {!isSubmitted && <ArrowRight size={16} />}
+                  {isSubmitted ? (
+                    <>
+                      <CheckCircle size={18} />
+                      Proposta enviada!
+                    </>
+                  ) : (
+                    <>
+                      Quero minha proposta
+                      <ArrowRight size={16} />
+                    </>
+                  )}
                 </button>
               </div>
               <p className="text-sm text-gray-500 mt-2">
@@ -90,7 +196,7 @@ export const Hero: React.FC = () => {
             
             {/* Floating Cards */}
             <div className="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
-              <div className="text-2xl font-bold text-green-600">150+</div>
+              <div className="text-2xl font-bold text-green-600">20+</div>
               <div className="text-sm text-gray-600">Projetos Entregues</div>
             </div>
             

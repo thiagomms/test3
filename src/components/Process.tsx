@@ -1,32 +1,33 @@
+import React from 'react';
 import { Edit3, Settings, Search, Rocket } from 'lucide-react';
 
-export const Process = () => {
+export const Process: React.FC = () => {
   const processSteps = [
     {
       id: '01',
-      title: 'Descoberta & Planejamento',
-      description: 'Mergulhamos no seu negócio para entender seus objetivos, desafios e oportunidades. Criamos um plano estratégico detalhado que guiará todo o desenvolvimento do projeto.',
+      title: 'Planejamento do projeto',
+      description: 'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.',
       icon: Edit3,
       color: 'bg-blue-600'
     },
     {
       id: '02',
-      title: 'Design & Desenvolvimento',
-      description: 'Transformamos ideias em realidade com design moderno e código limpo. Utilizamos as melhores tecnologias do mercado para criar soluções rápidas, seguras e escaláveis.',
+      title: 'Desenvolvimento',
+      description: 'Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.',
       icon: Settings,
       color: 'bg-purple-600'
     },
     {
       id: '03',
-      title: 'Testes & Otimização',
-      description: 'Realizamos testes rigorosos para garantir qualidade e performance excepcionais. Cada detalhe é refinado para proporcionar a melhor experiência aos seus usuários.',
+      title: 'Backtest & Execução',
+      description: 'Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras dapibus. Vivamus elementum semper nisi.',
       icon: Search,
       color: 'bg-blue-600'
     },
     {
       id: '04',
-      title: 'Lançamento & Crescimento',
-      description: 'Acompanhamos o lançamento e fornecemos suporte contínuo. Monitoramos métricas, implementamos melhorias e ajudamos seu projeto a crescer constantemente.',
+      title: 'Lançamento & Suporte',
+      description: 'Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.',
       icon: Rocket,
       color: 'bg-purple-600'
     }
@@ -36,18 +37,18 @@ export const Process = () => {
     <section id="processo" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Nosso <span className="text-blue-600">Processo de Trabalho</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Nossa linha de trabalho
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Seguimos uma metodologia comprovada que garante resultados excepcionais. 
-            Cada etapa é cuidadosamente planejada para entregar o máximo valor ao seu negócio.
+          <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
           </p>
         </div>
 
         {/* Process Steps - Drawer Layout */}
         <div className="max-w-4xl mx-auto space-y-6">
-          {processSteps.map((step) => (
+          {processSteps.map((step, index) => (
             <div
               key={step.id}
               className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 cursor-pointer overflow-hidden"
@@ -99,12 +100,9 @@ export const Process = () => {
 
         {/* CTA Button */}
         <div className="text-center mt-16">
-          <a 
-            href="#portfolio"
-            className="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl hover:bg-blue-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1"
-          >
-            Ver Nossos Projetos →
-          </a>
+          <button className="bg-blue-600 text-white px-10 py-4 rounded-xl hover:bg-blue-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1">
+            Leia mais →
+          </button>
         </div>
       </div>
     </section>

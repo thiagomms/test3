@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -20,13 +20,13 @@ export const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/aulink.oficial" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                <Facebook size={20} />
+                <i className="fab fa-facebook-f text-xl"></i>
               </a>
               <a href="https://www.instagram.com/aulink.oficial/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                <Instagram size={20} />
+                <i className="fab fa-instagram text-xl"></i>
               </a>
               <a href="https://www.linkedin.com/company/aulink" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
-                <Linkedin size={20} />
+                <i className="fab fa-linkedin-in text-xl"></i>
               </a>
             </div>
           </div>
@@ -35,10 +35,11 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Nossos Serviços</h3>
             <ul className="space-y-3">
-              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Desenvolvimento Web</a></li>              
-              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Apps Mobile</a></li>
-              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">UI/UX Design</a></li>
-              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Consultoria Digital</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Sites corporativos</a></li>              
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Tráfego Pago</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Dashboards</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Captura Audiovisual</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Motion'S</a></li>
             </ul>
           </div>
 
@@ -47,16 +48,28 @@ export const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Contato</h3>
             <div className="space-y-4">
               <div className="flex items-center">
-                <Phone size={18} className="text-blue-400 mr-3" />
-                <span className="text-gray-300">(11) 99999-9999</span>
+                <i className="fab fa-whatsapp text-blue-400 mr-3 text-lg"></i>
+                <a 
+                  href="https://wa.me/5561996858829"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  +55 61 99685-8829
+                </a>
               </div>
               <div className="flex items-center">
                 <Mail size={18} className="text-blue-400 mr-3" />
-                <span className="text-gray-300">contato@aulink.com</span>
+                <a 
+                  href="mailto:contato@aulink.com"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                >
+                  contato@aulink.com
+                </a>
               </div>
               <div className="flex items-center">
                 <MapPin size={18} className="text-blue-400 mr-3" />
-                <span className="text-gray-300">São Paulo, SP</span>
+                <span className="text-gray-300">Brasília | DF </span>
               </div>
             </div>
           </div>
