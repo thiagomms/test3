@@ -207,8 +207,7 @@ export const projectsDetails: Record<string, ProjectDetail> = {
     images: [
       '/sant.produtora-peedro.fs.mp4',
       '/saint-3.jpg',
-      'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800',
-      'https://images.unsplash.com/photo-1535016120720-40c646be5580?w=800'
+      'public/mesa-4k.png',      
     ],
     description: `Nossa equipe especializada em produção audiovisual cria conteúdo visual impactante que conta a história da sua marca. 
     
