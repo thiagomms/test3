@@ -48,7 +48,7 @@ export const Process: React.FC = () => {
 
         {/* Process Steps - Drawer Layout */}
         <div className="max-w-4xl mx-auto space-y-6">
-          {processSteps.map((step, index) => (
+          {processSteps.map((step) => (
             <div
               key={step.id}
               className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 cursor-pointer overflow-hidden"
