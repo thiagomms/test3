@@ -32,6 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen, onNav
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#inicio" onClick={(e) => handleNavClick(e, 'inicio')} className="text-gray-700 hover:text-blue-600 transition-colors">Início</a>
             <a href="#sobre" onClick={(e) => handleNavClick(e, 'sobre')} className="text-gray-700 hover:text-blue-600 transition-colors">Sobre</a>
+            <a href="#processo" onClick={(e) => handleNavClick(e, 'processo')} className="text-gray-700 hover:text-blue-600 transition-colors">Processo</a>
             <a href="#portfolio" onClick={(e) => handleNavClick(e, 'portfolio')} className="text-gray-700 hover:text-blue-600 transition-colors">Portfolio</a>
             <a href="#contato" onClick={(e) => handleNavClick(e, 'contato')} className="text-gray-700 hover:text-blue-600 transition-colors">Contato</a>
           </nav>
@@ -61,6 +62,7 @@ export const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen, onNav
             <nav className="flex flex-col space-y-4 mt-4">
               <a href="#inicio" onClick={(e) => handleNavClick(e, 'inicio')} className="text-gray-700 hover:text-blue-600 transition-colors">Início</a>
               <a href="#sobre" onClick={(e) => handleNavClick(e, 'sobre')} className="text-gray-700 hover:text-blue-600 transition-colors">Sobre</a>
+              <a href="#processo" onClick={(e) => handleNavClick(e, 'processo')} className="text-gray-700 hover:text-blue-600 transition-colors">Processo</a>
               <a href="#portfolio" onClick={(e) => handleNavClick(e, 'portfolio')} className="text-gray-700 hover:text-blue-600 transition-colors">Portfolio</a>
               <a href="#contato" onClick={(e) => handleNavClick(e, 'contato')} className="text-gray-700 hover:text-blue-600 transition-colors">Contato</a>
               <button 

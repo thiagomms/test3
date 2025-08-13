@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Eye, ArrowRight } from 'lucide-react';
+import { portfolioProjects } from '../data/portfolioProjects';
+import { categories } from '../data/categories';
 
 interface PortfolioProps {
   onProjectClick?: (projectId: string) => void;
@@ -8,76 +10,14 @@ interface PortfolioProps {
 export const Portfolio = ({ onProjectClick }: PortfolioProps) => {
   const [activeCategory, setActiveCategory] = useState('todos');
 
-  const projects = [
-    {
-      id: 1,
-      title: 'E-commerce ModaStyle',
-      description: 'Plataforma completa de vendas online com sistema de pagamento integrado e gestão de estoque.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500',
-      category: 'ecommerce',
-      technologies: ['React', 'Node.js', 'MongoDB'],
-      link: '#',
-      github: '#'
-    },
-    {
-      id: 2,
-      title: 'App FitTracker',
-      description: 'Aplicativo mobile para acompanhamento de exercícios e metas de saúde.',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500',
-      category: 'mobile',
-      technologies: ['React Native', 'Firebase', 'Redux'],
-      link: '#',
-      github: '#'
-    },
-    {
-      id: 3,
-      title: 'Site Corporativo TechCorp',
-      description: 'Website institucional responsivo com sistema de gerenciamento de conteúdo.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500',
-      category: 'website',
-      technologies: ['Next.js', 'Tailwind', 'Strapi'],
-      link: '#',
-      github: '#'
-    },
-    {
-      id: 4,
-      title: 'Dashboard Analytics Pro',
-      description: 'Painel administrativo avançado com relatórios em tempo real e visualização de dados.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500',
-      category: 'dashboard',
-      technologies: ['Vue.js', 'Chart.js', 'Laravel'],
-      link: '#',
-      github: '#'
-    },
-    {
-      id: 5,
-      title: 'Loja Virtual GreenLife',
-      description: 'E-commerce sustentável com sistema de marketplace e programa de fidelidade.',
-      image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=500',
-      category: 'ecommerce',
-      technologies: ['Shopify', 'React', 'GraphQL'],
-      link: '#',
-      github: '#'
-    },
-    {
-      id: 6,
-      title: 'Portfolio Criativo',
-      description: 'Site portfólio para artista digital com galeria interativa e animações personalizadas.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500',
-      category: 'website',
-      technologies: ['Three.js', 'GSAP', 'Nuxt.js'],
-      link: '#',
-      github: '#'
-    }
-  ];
+  // Função para verificar se é um vídeo
+  const isVideo = (url: string) => {
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov'];
+    return videoExtensions.some(ext => url.toLowerCase().endsWith(ext));
+  };
 
-  const categories = [
-    { id: 'todos', label: 'Todos os Projetos' },
-    { id: 'website', label: 'Websites' },
-    { id: 'ecommerce', label: 'Fotos' },
-    { id: 'mobile', label: 'Notions' },
-    // { id: 'dashboard', label: 'Dashboards' }
-  ];
+  // Usando dados importados
+  const projects = portfolioProjects;
 
   const filteredProjects = activeCategory === 'todos' 
     ? projects 
@@ -121,11 +61,24 @@ export const Portfolio = ({ onProjectClick }: PortfolioProps) => {
               className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow"
             >
               <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                {isVideo(project.image) ? (
+                  <video
+                    src={project.image}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    Seu navegador não suporta vídeos HTML5.
+                  </video>
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                )}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <button
                     onClick={() => onProjectClick?.(project.id.toString())}
@@ -140,6 +93,7 @@ export const Portfolio = ({ onProjectClick }: PortfolioProps) => {
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
                 <p className="text-gray-600 mb-4">{project.description}</p>
                 
+                {/* Tecnologias comentadas
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, index) => (
                     <span
@@ -150,6 +104,7 @@ export const Portfolio = ({ onProjectClick }: PortfolioProps) => {
                     </span>
                   ))}
                 </div>
+                */}
                 
                 <button className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2 group">
                   <span onClick={() => onProjectClick?.(project.id.toString())}>Ver projeto completo</span>

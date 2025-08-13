@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
+import { Process } from './components/Process';
 import { Portfolio } from './components/Portfolio';
 import { Testimonials } from './components/Testimonials';
 import { Footer } from './components/Footer';
@@ -52,6 +53,7 @@ function App() {
         <>
           <Hero />
           <About />
+          <Process />
           <Portfolio onProjectClick={handleProjectClick} />
           <Testimonials />
           <Footer />

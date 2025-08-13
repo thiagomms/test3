@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowLeft, ExternalLink, Github, Calendar, User, Tag, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
+import { projectsDetails } from '../data/projectsDetails';
 
 interface ProjectDetailsProps {
   projectId: string;
@@ -14,103 +15,19 @@ export const ProjectDetails = ({ projectId, onBack }: ProjectDetailsProps) => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
-  // Dados do projeto (normalmente viria de uma API ou contexto)
-  const projectData = {
-    '1': {
-      title: 'E-commerce ModaStyle',
-      subtitle: 'Plataforma completa de vendas online com sistema de pagamento integrado e gestão de estoque.',
-      category: 'E-commerce',
-      client: 'ModaStyle Boutique',
-      date: '15 de Janeiro, 2024',
-      url: 'https://modastyle.com.br',
-      github: 'https://github.com/digitalstudio/modastyle',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'AWS'],
-      images: [
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
-        'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800',
-        'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800'
-      ],
-      description: `O projeto E-commerce ModaStyle foi desenvolvido para revolucionar a experiência de compra online da boutique. 
-      
-      Criamos uma plataforma robusta e elegante que não apenas apresenta os produtos de forma atrativa, mas também oferece uma experiência de usuário excepcional desde a navegação até a finalização da compra.`,
-      
-      features: [
-        'Sistema de pagamento integrado com múltiplas opções',
-        'Gestão completa de estoque em tempo real',
-        'Painel administrativo avançado',
-        'Sistema de avaliações e comentários',
-        'Integração com redes sociais',
-        'Otimização para SEO',
-        'Design responsivo para todos os dispositivos',
-        'Sistema de cupons e promoções'
-      ],
-      
-      challenges: `O principal desafio foi integrar múltiplos sistemas de pagamento mantendo a segurança e performance. 
-      Desenvolvemos uma arquitetura escalável que suporta alto volume de transações simultâneas.`,
-      
-      results: [
-        'Aumento de 300% nas vendas online',
-        'Redução de 40% na taxa de abandono do carrinho',
-        'Melhoria de 250% no tempo de carregamento',
-        'Crescimento de 180% no tráfego orgânico'
-      ],
-      
-      testimonial: {
-        text: "A AuLink superou todas as nossas expectativas. O e-commerce não apenas ficou lindo, mas também trouxe resultados incríveis para nosso negócio.",
-        author: "Maria Silva",
-        role: "CEO da ModaStyle Boutique",
-        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100"
-      }
-    },
-    '2': {
-      title: 'App FitTracker',
-      subtitle: 'Aplicativo mobile para acompanhamento de exercícios e metas de saúde.',
-      category: 'Mobile App',
-      client: 'FitLife Academy',
-      date: '22 de Março, 2024',
-      url: 'https://fittracker.app',
-      github: 'https://github.com/digitalstudio/fittracker',
-      technologies: ['React Native', 'Firebase', 'Redux', 'Node.js', 'MongoDB'],
-      images: [
-        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800',
-        'https://images.unsplash.com/photo-1434596922112-19c563067271?w=800',
-        'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800'
-      ],
-      description: `O FitTracker é um aplicativo mobile completo para acompanhamento de atividades físicas e metas de saúde. 
-      
-      Desenvolvido com foco na experiência do usuário, o app oferece ferramentas intuitivas para monitoramento de exercícios, nutrição e progresso pessoal.`,
-      
-      features: [
-        'Rastreamento de exercícios em tempo real',
-        'Planos de treino personalizados',
-        'Monitor de calorias e nutrição',
-        'Integração com wearables',
-        'Sistema de conquistas e gamificação',
-        'Comunidade e desafios entre usuários',
-        'Relatórios detalhados de progresso',
-        'Sincronização em nuvem'
-      ],
-      
-      challenges: `O maior desafio foi criar uma interface intuitiva que funcionasse perfeitamente durante os exercícios, 
-      considerando que os usuários estariam em movimento e com as mãos ocupadas.`,
-      
-      results: [
-        '50.000+ downloads nos primeiros 3 meses',
-        'Avaliação média de 4.8 estrelas',
-        '85% de retenção de usuários após 30 dias',
-        'Crescimento de 120% na base de usuários mensais'
-      ],
-      
-      testimonial: {
-        text: "O FitTracker transformou a forma como nossos alunos acompanham seus treinos. A interface é perfeita e os resultados são impressionantes.",
-        author: "João Santos",
-        role: "Diretor da FitLife Academy",
-        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
-      }
-    }
+  // Função para verificar se é um vídeo
+  const isVideo = (url: string) => {
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov'];
+    return videoExtensions.some(ext => url.toLowerCase().endsWith(ext));
   };
 
-  const project = projectData[projectId as keyof typeof projectData];
+  // Função para verificar se é um GIF
+  const isGif = (url: string) => {
+    return url.toLowerCase().endsWith('.gif');
+  };
+
+  // Usando dados importados
+  const project = projectsDetails[projectId];
 
   if (!project) {
     return (
@@ -160,14 +77,33 @@ export const ProjectDetails = ({ projectId, onBack }: ProjectDetailsProps) => {
         </div>
       </div>
 
-      {/* Image Gallery */}
+      {/* Media Gallery */}
       <div className="container mx-auto px-4 mb-12">
         <div className="relative bg-gray-100 rounded-2xl overflow-hidden">
-          <img
-            src={project.images[currentImageIndex]}
-            alt={`${project.title} - Imagem ${currentImageIndex + 1}`}
-            className="w-full h-96 lg:h-[500px] object-cover"
-          />
+          {isVideo(project.images[currentImageIndex] || '') ? (
+            <video
+              key={currentImageIndex}
+              src={project.images[currentImageIndex]}
+              className="w-full h-96 lg:h-[500px] object-contain bg-black"
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              Seu navegador não suporta vídeos HTML5.
+            </video>
+          ) : (
+            <img
+              src={project.images[currentImageIndex]}
+              alt={`${project.title} - Mídia ${currentImageIndex + 1}`}
+              className={`w-full h-96 lg:h-[500px] ${
+                isGif(project.images[currentImageIndex] || '') 
+                  ? 'object-contain bg-white' 
+                  : 'object-cover'
+              }`}
+            />
+          )}
           
           {project.images.length > 1 && (
             <>
@@ -201,163 +137,179 @@ export const ProjectDetails = ({ projectId, onBack }: ProjectDetailsProps) => {
         </div>
       </div>
 
-      {/* Project Content */}
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{project.title}</h2>
-              <p className="text-xl text-gray-600 mb-6">{project.subtitle}</p>
-              <p className="text-gray-700 leading-relaxed whitespace-pre-line">{project.description}</p>
-            </div>
+      {/* Project Info */}
+      <div className="container mx-auto px-4 mb-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-8">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{project.title}</h2>
+            <p className="text-xl text-gray-600">{project.subtitle}</p>
+          </div>
 
-            {/* Features */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Principais Funcionalidades</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {project.features.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-700">{feature}</span>
-                  </div>
-                ))}
+          {/* Meta Information */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div className="bg-gray-50 p-6 rounded-xl">
+              <div className="flex items-center text-blue-600 mb-2">
+                <Tag size={20} className="mr-2" />
+                <span className="font-medium">Categoria</span>
               </div>
+              <p className="text-gray-700">{project.category}</p>
             </div>
-
-            {/* Challenges */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Desafios e Soluções</h3>
-              <p className="text-gray-700 leading-relaxed">{project.challenges}</p>
-            </div>
-
-            {/* Results */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Resultados Alcançados</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {project.results.map((result, index) => (
-                  <div key={index} className="bg-green-50 p-4 rounded-lg">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                      <span className="text-green-800 font-medium">{result}</span>
-                    </div>
-                  </div>
-                ))}
+            
+            <div className="bg-gray-50 p-6 rounded-xl">
+              <div className="flex items-center text-blue-600 mb-2">
+                <User size={20} className="mr-2" />
+                <span className="font-medium">Cliente</span>
               </div>
+              <p className="text-gray-700">{project.client}</p>
             </div>
+            
+            <div className="bg-gray-50 p-6 rounded-xl">
+              <div className="flex items-center text-blue-600 mb-2">
+                <Calendar size={20} className="mr-2" />
+                <span className="font-medium">Data</span>
+              </div>
+              <p className="text-gray-700">{project.date}</p>
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-xl">
+              <div className="flex items-center text-blue-600 mb-2">
+                <Globe size={20} className="mr-2" />
+                <span className="font-medium">Website</span>
+              </div>
+              <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">
+                Ver ao vivo
+              </a>
+            </div>
+          </div>
 
-            {/* Testimonial */}
-            <div className="bg-gray-50 p-8 rounded-2xl">
-              <div className="text-2xl text-blue-600 mb-4">"</div>
-              <p className="text-lg text-gray-700 italic mb-6">{project.testimonial.text}</p>
-              <div className="flex items-center">
-                <img
-                  src={project.testimonial.avatar}
-                  alt={project.testimonial.author}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
-                />
-                <div>
-                  <div className="font-semibold text-gray-900">{project.testimonial.author}</div>
-                  <div className="text-gray-600 text-sm">{project.testimonial.role}</div>
+          {/* Technologies - Comentado
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Tecnologias Utilizadas</h3>
+            <div className="flex flex-wrap gap-3">
+              {project.technologies.map((tech, index) => (
+                <span
+                  key={index}
+                  className="bg-blue-100 text-blue-700 px-6 py-3 rounded-full text-lg font-medium"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+          */}
+
+          {/* Description */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Sobre o Projeto</h3>
+            <div className="prose prose-lg max-w-none text-gray-600">
+              {project.description.split('\n').map((paragraph, index) => (
+                <p key={index} className="mb-4">{paragraph.trim()}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* Features */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Funcionalidades Principais</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {project.features.map((feature, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <p className="text-gray-600 text-lg">{feature}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Challenges */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Desafios e Soluções</h3>
+            <div className="bg-blue-50 p-8 rounded-2xl">
+              <p className="text-gray-700 text-lg leading-relaxed">{project.challenges}</p>
+            </div>
+          </div>
+
+          {/* Results */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Resultados Alcançados</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {project.results.map((result, index) => (
+                <div key={index} className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                      {index + 1}
+                    </div>
+                    <p className="text-gray-700 font-medium text-lg">{result}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Testimonial */}
+          <div className="bg-gray-50 p-8 lg:p-12 rounded-2xl">
+            <div className="flex items-start mb-6">
+              {[...Array(5)].map((_, index) => (
+                <svg key={index} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            
+            <blockquote className="text-xl lg:text-2xl text-gray-700 font-medium mb-8 italic">
+              "{project.testimonial.text}"
+            </blockquote>
+            
+            <div className="flex items-center">
+              <img
+                src={project.testimonial.avatar}
+                alt={project.testimonial.author}
+                className="w-16 h-16 rounded-full object-cover mr-4"
+              />
+              <div>
+                <p className="font-bold text-gray-900 text-lg">{project.testimonial.author}</p>
+                <p className="text-gray-600">{project.testimonial.role}</p>
               </div>
             </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            <div className="bg-gray-50 p-6 rounded-2xl">
-              <h3 className="text-lg font-bold text-gray-900 mb-6">Informações do Projeto</h3>
-              
-              <div className="space-y-4">
-                <div>
-                  <div className="flex items-center text-gray-600 mb-1">
-                    <Tag size={16} className="mr-2" />
-                    <span className="text-sm font-medium">CATEGORIA</span>
-                  </div>
-                  <div className="text-gray-900">{project.category}</div>
-                </div>
-
-                <div>
-                  <div className="flex items-center text-gray-600 mb-1">
-                    <User size={16} className="mr-2" />
-                    <span className="text-sm font-medium">CLIENTE</span>
-                  </div>
-                  <div className="text-gray-900">{project.client}</div>
-                </div>
-
-                <div>
-                  <div className="flex items-center text-gray-600 mb-1">
-                    <Calendar size={16} className="mr-2" />
-                    <span className="text-sm font-medium">DATA DO PROJETO</span>
-                  </div>
-                  <div className="text-gray-900">{project.date}</div>
-                </div>
-
-                <div>
-                  <div className="flex items-center text-gray-600 mb-1">
-                    <Globe size={16} className="mr-2" />
-                    <span className="text-sm font-medium">URL DO PROJETO</span>
-                  </div>
-                  <a href={project.url} className="text-blue-600 hover:text-blue-700 break-all">
-                    {project.url}
-                  </a>
-                </div>
-              </div>
-
-              <div className="mt-6 space-y-3">
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
-                >
-                  <ExternalLink size={16} />
-                  Visitar Website
-                </a>
-                
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-gray-800 text-white px-4 py-3 rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center gap-2"
-                >
-                  <Github size={16} />
-                  Ver no GitHub
-                </a>
-              </div>
-            </div>
-
-            {/* Technologies */}
-            <div className="bg-gray-50 p-6 rounded-2xl">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Tecnologias Utilizadas</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+          {/* Project Links */}
+          <div className="flex flex-wrap gap-4 mt-12">
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors flex items-center gap-2 text-lg font-medium"
+            >
+              <ExternalLink size={20} />
+              Ver Projeto ao Vivo
+            </a>
+            {project.github !== '#' && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 text-white px-8 py-4 rounded-xl hover:bg-gray-900 transition-colors flex items-center gap-2 text-lg font-medium"
+              >
+                <Github size={20} />
+                Ver Código no GitHub
+              </a>
+            )}
           </div>
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="bg-blue-600 text-white py-16 mt-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Gostou do que viu?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Vamos criar algo incrível para o seu negócio também!
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium">
-            Solicitar Orçamento
-          </button>
+      {/* Navigation */}
+      <div className="bg-gray-50 py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center">
+            <button
+              onClick={onBack}
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              Voltar ao Portfolio
+            </button>
+          </div>
         </div>
       </div>
     </div>

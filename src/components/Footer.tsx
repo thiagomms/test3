@@ -35,8 +35,7 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Nossos Serviços</h3>
             <ul className="space-y-3">
-              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Desenvolvimento Web</a></li>
-              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">E-commerce</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Desenvolvimento Web</a></li>              
               <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Apps Mobile</a></li>
               <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">UI/UX Design</a></li>
               <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Consultoria Digital</a></li>
