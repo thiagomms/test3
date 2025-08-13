@@ -205,8 +205,8 @@ export const projectsDetails: Record<string, ProjectDetail> = {
     github: '#',
     technologies: ['After Effects', 'Premiere Pro', 'DaVinci Resolve', 'Cinema 4D', 'OBS Studio'],
     images: [
-      'public/sant.produtora-peedro.fs.mp4',
-      'public/saint-3.jpg',
+      '/sant.produtora-peedro.fs.mp4',
+      '/saint-3.jpg',
       'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800',
       'https://images.unsplash.com/photo-1535016120720-40c646be5580?w=800'
     ],
