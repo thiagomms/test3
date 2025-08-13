@@ -83,19 +83,7 @@ export const Footer = () => {
               <p className="text-gray-300">
                 Receba dicas exclusivas e novidades do mundo digital
               </p>
-            </div>
-            <div className="lg:w-1/2">
-              <form className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Seu e-mail"
-                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                />
-                <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap">
-                  Inscrever-se
-                </button>
-              </form>
-            </div>
+            </div>            
           </div>
         </div>
 

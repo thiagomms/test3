@@ -6,9 +6,9 @@ export const Testimonials: React.FC = () => {
     {
       id: 1,
       name: 'Marcos Bellizia',
-      role: 'CEO da Boutique Elegance',
+      role: 'Consultor de negócios, Conselheiro da universidade de Boston (USA)',
       content: 'A AuLink transformou completamente nossa presença online. O e-commerce que desenvolveram aumentou nossas vendas em 300% em apenas 6 meses.',
-      avatar: '/public/cliente1.png',
+      avatar: '/cliente1.png',
       rating: 5
     },
     {
@@ -16,7 +16,7 @@ export const Testimonials: React.FC = () => {
       name: 'João Santos',
       role: 'Funcionario de StartUp',
       content: 'Profissionais excepcionais! Entregaram nosso app mobile antes do prazo e com qualidade superior ao esperado. Recomendo sem hesitação.',
-      avatar: '/public/cliente2.jfif',
+      avatar: '/cliente2.jfif',
       rating: 5
     },
     {
@@ -24,7 +24,7 @@ export const Testimonials: React.FC = () => {
       name: 'Lucas Rodrigues',
       role: 'Diretor de Tech StartUp',
       content: 'Além do excelente trabalho técnico, a equipe demonstrou total comprometimento com nossos valores sustentáveis. Parceria perfeita!',
-      avatar: '/public/lucas.jfif',
+      avatar: '/lucas.jfif',
       rating: 5
     }
   ];
