@@ -6,28 +6,28 @@ export const Process: React.FC = () => {
     {
       id: '01',
       title: 'Planejamento do projeto',
-      description: 'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.',
+      description: 'Grandes resultados não acontecem por acaso. No planejamento, mergulhamos no seu negócio para entender suas necessidades e criar um caminho estratégico sob medida. Cada detalhe é pensado para que você economize tempo, reduza custos e maximize resultados desde o início.',
       icon: Edit3,
       color: 'bg-blue-600'
     },
     {
       id: '02',
       title: 'Desenvolvimento',
-      description: 'Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.',
+      description: 'Transformamos ideias em soluções reais. Com foco em inovação e qualidade, nossa equipe desenvolve projetos personalizados que entregam valor imediato ao seu negócio. Aqui, não criamos apenas produtos, criamos experiências que fortalecem sua marca e geram crescimento.',
       icon: Settings,
       color: 'bg-purple-600'
     },
     {
       id: '03',
       title: 'Backtest & Execução',
-      description: 'Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras dapibus. Vivamus elementum semper nisi.',
+      description: 'Estratégia testada é resultado garantido. Antes de qualquer ação, validamos nossas estratégias com análises e simulações práticas. Isso significa menos riscos e mais segurança para você. Quando chega a hora da execução, cada passo é dado com confiança e precisão.',
       icon: Search,
       color: 'bg-blue-600'
     },
     {
       id: '04',
       title: 'Lançamento & Suporte',
-      description: 'Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.',
+      description: 'Do lançamento ao pós-venda, você nunca estará sozinho. Acompanhamos cada etapa para garantir que seu projeto não apenas decole, mas continue crescendo com consistência. Nosso suporte é próximo, ágil e sempre focado em gerar resultados cada vez melhores.',
       icon: Rocket,
       color: 'bg-purple-600'
     }
