@@ -42,7 +42,7 @@ export const Process: React.FC = () => {
           </h2>
           <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+          Do planejamento ao resultado: sua empresa em boas mãos
           </p>
         </div>
 
@@ -57,9 +57,9 @@ export const Process: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="relative p-8 flex items-center space-x-8">
-                {/* Large Number Background */}
+                {/* Large Number Background (hidden to keep layout) */}
                 <div className="relative flex-shrink-0">
-                  <div className="text-8xl font-bold text-gray-100 select-none group-hover:text-gray-200 transition-colors duration-300">
+                  <div className="text-8xl font-bold text-gray-100 select-none opacity-0" aria-hidden="true">
                     {step.id}
                   </div>
                   
