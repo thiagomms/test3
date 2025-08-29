@@ -56,21 +56,26 @@ export const Process: React.FC = () => {
               {/* Background gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              <div className="relative p-8 flex items-center space-x-8">
+              <div className="relative p-8 flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-8">
                 {/* Large Number Background (hidden to keep layout) */}
-                <div className="relative flex-shrink-0">
+                <div className="relative flex-shrink-0 hidden md:block">
                   <div className="text-8xl font-bold text-gray-100 select-none opacity-0" aria-hidden="true">
                     {step.id}
                   </div>
                   
                   {/* Icon Container */}
-                  <div className={`absolute top-4 left-4 w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center transform group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-xl`}>
+                  <div className={`hidden md:flex absolute top-4 left-4 w-16 h-16 ${step.color} rounded-2xl items-center justify-center transform group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-xl`}>
                     <step.icon className="text-white" size={28} />
                   </div>
                 </div>
 
+                {/* Icon Container (mobile) */}
+                <div className={`md:hidden w-14 h-14 ${step.color} rounded-2xl flex items-center justify-center shadow-lg`}>
+                  <step.icon className="text-white" size={24} />
+                </div>
+
                 {/* Content */}
-                <div className="flex-1 transform group-hover:translate-x-4 transition-transform duration-500">
+                <div className="flex-1 transform md:group-hover:translate-x-4 transition-transform duration-500">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                     {step.title}
                   </h3>
@@ -80,12 +85,12 @@ export const Process: React.FC = () => {
                   
                   {/* Progress indicator */}
                   <div className="mt-6 h-1 bg-gray-200 rounded-full overflow-hidden">
-                    <div className={`h-full ${step.color} rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 delay-200`}></div>
+                    <div className={`h-full ${step.color} rounded-full transform -translate-x-full md:group-hover:translate-x-0 transition-transform duration-700 delay-200`}></div>
                   </div>
                 </div>
 
                 {/* Arrow indicator */}
-                <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                <div className="flex-shrink-0 opacity-0 md:group-hover:opacity-100 transform translate-x-4 md:group-hover:translate-x-0 transition-all duration-500">
                   <div className="w-8 h-8 border-2 border-blue-600 rounded-full flex items-center justify-center">
                     <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                   </div>
