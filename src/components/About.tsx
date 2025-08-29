@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Award, Clock, Target } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export const About: React.FC = () => {
   const stats = [
@@ -9,21 +10,27 @@ export const About: React.FC = () => {
     { icon: Target, value: '98%', label: 'Taxa de Satisfação' },
   ];
 
-  const values = [
+  type ValueItem = {
+    title: string;
+    description: string;
+    icon: LucideIcon;
+  };
+
+  const values: ValueItem[] = [
     {
       title: 'Inovação Constante',
       description: 'Sempre atualizados com as últimas tecnologias e tendências do mercado digital.',
-      icon: '🚀'
+      icon: Target
     },
     {
       title: 'Qualidade Premium',
       description: 'Cada projeto é desenvolvido com máxima atenção aos detalhes e padrões de excelência.',
-      icon: '⭐'
+      icon: Award
     },
     {
       title: 'Suporte Dedicado',
       description: 'Acompanhamento completo do projeto antes, durante e após a entrega dos resultados',
-      icon: '🤝'
+      icon: Users
     }
   ];
 
@@ -35,22 +42,24 @@ export const About: React.FC = () => {
             Sobre a <span className="text-blue-600">AuLink</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Somos uma equipe apaixonada por tecnologia, marketing e estratégia de alavancagem, dedicada a criar soluções digitais que transformam negócios e conectam pessoas. Nossa missão é levar sua empresa para o próximo nível digital e de muito sucesso
+          Somos uma equipe apaixonada por tecnologia, marketing e estratégia de alavancagem, dedicada a criar soluções digitais que transformam negócios e conectam pessoas. Nossa missão é levar sua empresa para o próximo nível digital.
           </p>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
-                <stat.icon className="text-blue-600" size={28} />
+        {/* Stats (comentado por solicitação) */}
+        {false && (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+                  <stat.icon className="text-blue-600" size={28} />
+                </div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                <div className="text-gray-600">{stat.label}</div>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-              <div className="text-gray-600">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Values */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -69,7 +78,9 @@ export const About: React.FC = () => {
             
             {values.map((value, index) => (
               <div key={index} className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                <div className="text-2xl">{value.icon}</div>
+                <div className="bg-blue-50 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <value.icon className="text-blue-600" size={22} />
+                </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">{value.title}</h4>
                   <p className="text-gray-600">{value.description}</p>

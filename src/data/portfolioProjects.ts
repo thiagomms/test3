@@ -23,9 +23,9 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: 2,
-    title: 'Motion Design 3D',
+    title: 'Design 3D',
     description: 'Criação de animações 3D e motion graphics que dão vida às ideias e elevam a comunicação visual.',
-    image: '/intro-aniel.mp4',
+    image: '/ntro-aniel.mp4',
     category: 'mobile',
     technologies: ['Cinema 4D', 'After Effects', 'Blender'],
     link: '#',
@@ -43,7 +43,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: 4,
-    title: 'Captura Audiovisual',
+    title: 'Audiovisual',
     description: 'Sistema profissional para captura, edição e produção de vídeos corporativos e institucionais.',
     image: '/icon-sant.jpg',
     category: 'video',

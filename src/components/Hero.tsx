@@ -98,11 +98,11 @@ export const Hero: React.FC = () => {
               </div>
               <div className="flex items-center text-gray-700">
                 <CheckCircle className="text-green-500 mr-2" size={20} />
-                <span>Captura AudioVisual</span>
+                <span>AudioVisual</span>
               </div>
               <div className="flex items-center text-gray-700">
                 <CheckCircle className="text-green-500 mr-2" size={20} />
-                <span>Motion'S</span>
+                <span>Design</span>
               </div>
             </div>
 

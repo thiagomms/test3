@@ -9,6 +9,9 @@ interface ProjectDetailsProps {
 
 export const ProjectDetails = ({ projectId, onBack }: ProjectDetailsProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const SHOW_RESULTS = false; // comentado por solicitação
+  const SHOW_TESTIMONIAL = false; // comentado por solicitação
+  const SHOW_LINKS = false; // comentado por solicitação
 
   // Scroll para o topo quando o componente for montado
   useEffect(() => {
@@ -229,73 +232,79 @@ export const ProjectDetails = ({ projectId, onBack }: ProjectDetailsProps) => {
             </div>
           </div>
 
-          {/* Results */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Resultados Alcançados</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {project.results.map((result, index) => (
-                <div key={index} className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                      {index + 1}
+          {/* Results (comentado) */}
+          {SHOW_RESULTS && (
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Resultados Alcançados</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                {project.results.map((result, index) => (
+                  <div key={index} className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl">
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                        {index + 1}
+                      </div>
+                      <p className="text-gray-700 font-medium text-lg">{result}</p>
                     </div>
-                    <p className="text-gray-700 font-medium text-lg">{result}</p>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Testimonial */}
-          <div className="bg-gray-50 p-8 lg:p-12 rounded-2xl">
-            <div className="flex items-start mb-6">
-              {[...Array(5)].map((_, index) => (
-                <svg key={index} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-            
-            <blockquote className="text-xl lg:text-2xl text-gray-700 font-medium mb-8 italic">
-              "{project.testimonial.text}"
-            </blockquote>
-            
-            <div className="flex items-center">
-              <img
-                src={project.testimonial.avatar}
-                alt={project.testimonial.author}
-                className="w-16 h-16 rounded-full object-cover mr-4"
-              />
-              <div>
-                <p className="font-bold text-gray-900 text-lg">{project.testimonial.author}</p>
-                <p className="text-gray-600">{project.testimonial.role}</p>
+                ))}
               </div>
             </div>
-          </div>
+          )}
 
-          {/* Project Links */}
-          <div className="flex flex-wrap gap-4 mt-12">
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors flex items-center gap-2 text-lg font-medium"
-            >
-              <ExternalLink size={20} />
-              Ver Projeto ao Vivo
-            </a>
-            {project.github !== '#' && (
+          {/* Testimonial (comentado) */}
+          {SHOW_TESTIMONIAL && (
+            <div className="bg-gray-50 p-8 lg:p-12 rounded-2xl">
+              <div className="flex items-start mb-6">
+                {[...Array(5)].map((_, index) => (
+                  <svg key={index} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              
+              <blockquote className="text-xl lg:text-2xl text-gray-700 font-medium mb-8 italic">
+                "{project.testimonial.text}"
+              </blockquote>
+              
+              <div className="flex items-center">
+                <img
+                  src={project.testimonial.avatar}
+                  alt={project.testimonial.author}
+                  className="w-16 h-16 rounded-full object-cover mr-4"
+                />
+                <div>
+                  <p className="font-bold text-gray-900 text-lg">{project.testimonial.author}</p>
+                  <p className="text-gray-600">{project.testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Project Links (comentado) */}
+          {SHOW_LINKS && (
+            <div className="flex flex-wrap gap-4 mt-12">
               <a
-                href={project.github}
+                href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-800 text-white px-8 py-4 rounded-xl hover:bg-gray-900 transition-colors flex items-center gap-2 text-lg font-medium"
+                className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors flex items-center gap-2 text-lg font-medium"
               >
-                <Github size={20} />
-                Ver Código no GitHub
+                <ExternalLink size={20} />
+                Ver Projeto ao Vivo
               </a>
-            )}
-          </div>
+              {project.github !== '#' && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-800 text-white px-8 py-4 rounded-xl hover:bg-gray-900 transition-colors flex items-center gap-2 text-lg font-medium"
+                >
+                  <Github size={20} />
+                  Ver Código no GitHub
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </div>
 

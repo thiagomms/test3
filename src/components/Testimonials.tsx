@@ -2,6 +2,7 @@ import React from 'react';
 import { Star } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
+  const SHOW_TESTIMONIALS = false; // comentado por solicitação
   const testimonials = [
     {
       id: 1,
@@ -29,7 +30,7 @@ export const Testimonials: React.FC = () => {
     }
   ];
 
-  return (
+  return SHOW_TESTIMONIALS ? (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -74,5 +75,5 @@ export const Testimonials: React.FC = () => {
         </div>
       </div>
     </section>
-  );
+  ) : null;
 };

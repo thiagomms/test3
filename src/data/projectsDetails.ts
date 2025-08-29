@@ -93,7 +93,7 @@ export const projectsDetails: Record<string, ProjectDetail> = {
   },
   
   '2': {
-    title: 'Motion Design 3D',
+    title: 'Design 3D',
     subtitle: 'Criação de animações 3D e motion graphics que dão vida às ideias e elevam a comunicação visual.',
     category: 'Animação 3D',
     client: 'Diversas Empresas',
@@ -214,7 +214,7 @@ export const projectsDetails: Record<string, ProjectDetail> = {
     Desde a concepção até a entrega final, cuidamos de todo o processo de produção, garantindo qualidade cinematográfica e mensagens que ressoam com seu público-alvo.`,
     
     features: [
-      'Captação em 4K/8K com equipamentos profissionais',
+      'Captação com equipamentos profissionais',
       'Edição e pós-produção completa',
       'Motion graphics e animações 2D/3D',
       'Correção de cor profissional (color grading)',

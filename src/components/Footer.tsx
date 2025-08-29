@@ -38,8 +38,8 @@ export const Footer = () => {
               <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Sites corporativos</a></li>              
               <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Tráfego Pago</a></li>
               <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Dashboards</a></li>
-              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Captura Audiovisual</a></li>
-              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Motion'S</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Audiovisual</a></li>
+              <li><a href="#portfolio" className="text-gray-300 hover:text-white transition-colors">Design</a></li>
             </ul>
           </div>
 
